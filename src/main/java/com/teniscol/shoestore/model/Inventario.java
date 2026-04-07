@@ -1,5 +1,7 @@
 package com.teniscol.shoestore.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Inventario {
         return stock;
     }
 
+    @Schema(hidden = true)
     public List<Compra> getCompras() {
         return compras;
     }
