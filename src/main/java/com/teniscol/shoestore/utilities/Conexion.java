@@ -14,16 +14,6 @@ public class Conexion {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public static void cerrarConexion(Connection con) {
-        if (con != null) {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println("Error al cerrar conexión: " + e.getMessage());
-            }
-        }
-    }
-
     public static void main(String[] args) {
         try {
             Connection con = Conexion.obtenerConexion();
