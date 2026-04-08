@@ -8,11 +8,9 @@ public class Tenis {
     private double precio;
     private int stock;
 
-    // 🔹 Constructor vacío (obligatorio)
     public Tenis() {
     }
 
-    // 🔥 Constructor con parámetros (EL QUE TE FALTA)
     public Tenis(int id, String marca, String modelo, double precio, int stock) {
         this.id = id;
         this.marca = marca;
@@ -21,19 +19,43 @@ public class Tenis {
         this.stock = stock;
     }
 
-    // 🔹 Getters y Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getMarca() { return marca; }
-    public void setMarca(String marca) { this.marca = marca; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public String getMarca() {
+        return marca;
+    }
 
-    public double getPrecio() { return precio; }
-    public void setPrecio(double precio) { this.precio = precio; }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-    public int getStock() { return stock; }
-    public void setStock(int stock) { this.stock = stock; }
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 }

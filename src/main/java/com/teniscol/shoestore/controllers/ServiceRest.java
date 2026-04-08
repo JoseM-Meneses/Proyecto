@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/restienda")
 public class ServiceRest {
 
-    //private Inventario inventario = new Inventario();
     private TenisDao dao = new TenisDao();
 
     @Operation(
@@ -89,7 +88,7 @@ public class ServiceRest {
 
         if (!ok) {
             return ResponseEntity.badRequest()
-                    .body("No hay stock o el producto no existe");
+                    .body("No hay stock o no existe");
         }
 
         return new ResponseEntity<>(

@@ -36,7 +36,6 @@ public class TenisDao {
         return lista;
     }
 
-    // 🔹 2. Total de stock
     public int totalStock() {
         int total = 0;
         String sql = "SELECT SUM(stock) AS total FROM tenis";
@@ -56,45 +55,6 @@ public class TenisDao {
         return total;
     }
 
-    // 🔹 3. Verificar stock
-    public boolean verificarStock(String marca, String modelo, int cantidad) {
-        String sql = "SELECT stock FROM tenis WHERE marca = ?";
-
-        try (Connection con = Conexion.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, marca);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                int stock = rs.getInt("stock");
-                return stock >= cantidad;
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error al verificar el stock: " + e.getMessage());
-        }
-
-        return false;
-    }
-
-    // 🔹 4. Vender (restar stock)
-    public void vender(String marca, int cantidad) {
-        String sql = "UPDATE tenis SET stock = stock - ? WHERE marca = ?";
-
-        try (Connection con = Conexion.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setInt(1, cantidad);
-            ps.setString(2, marca);
-            ps.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.println("Error al vender: " + e.getMessage());
-        }
-    }
-
-    // 🔹 5. Actualizar stock manualmente
     public void actualizarStock(String marca, String modelo, Float precio, int stock) {
         String sql = "UPDATE tenis SET precio = ?, stock = ? WHERE marca = ? AND modelo = ?";
 
@@ -134,7 +94,6 @@ public class TenisDao {
 
         try (Connection con = Conexion.obtenerConexion()) {
 
-            // 1. Verificar stock
             PreparedStatement ps1 = con.prepareStatement(verificar);
             ps1.setString(1, marca);
             ps1.setString(2, modelo);
@@ -151,14 +110,12 @@ public class TenisDao {
                 return false; // no existe
             }
 
-            // 2. Descontar stock
             PreparedStatement ps2 = con.prepareStatement(actualizar);
             ps2.setInt(1, cantidad);
             ps2.setString(2, marca);
             ps2.setString(3, modelo);
             ps2.executeUpdate();
 
-            // 3. Insertar compra
             PreparedStatement ps3 = con.prepareStatement(insertar);
             ps3.setString(1, marca);
             ps3.setString(2, modelo);
