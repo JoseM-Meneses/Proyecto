@@ -25,7 +25,9 @@ public class ConexionBD {
                 System.out.println(
                     rs.getInt("id") + " - " +
                     rs.getString("nombre") + " - " +
-                    rs.getDouble("precio")
+                    rs.getDouble("precio") + " - " +
+		    rs.getInt("stock") + " - " +
+        	    rs.getString("modelo")
                 );
             }
 
