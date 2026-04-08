@@ -5,9 +5,8 @@ INSERT INTO productos (nombre, precio, stock, modelo) VALUES
 ('Jordan', 150000, 7, 'Suede'),
 ('Skechers', 250000, 2, 'D''Lites'),
 ('CROCS', 150000, 77, 'Classic');
-
-
-
+('Fila', 95000, 20, 'Disruptor'),
+('Vans', 85000, 30, 'Old Skool');
 
 
 
