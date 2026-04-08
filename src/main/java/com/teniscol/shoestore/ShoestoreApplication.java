@@ -8,6 +8,6 @@ public class ShoestoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShoestoreApplication.class, args);
+		ConexionBD.probarConexion();
 	}
-
 }
